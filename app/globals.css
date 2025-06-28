@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
 @theme{
-    --color-primary: #ad46ff;
+    --color-primary: #2b7fff;
+    --color-secondary: #232324;
+}
+.active{
+    @apply !fill-primary
 }
