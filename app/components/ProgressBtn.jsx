@@ -22,7 +22,7 @@ function ProgressBtn() {
                 <Image src={'LeftArrow.svg'} alt='left arrow' width={20} height={20} className='invert' />
                 <span>Previous</span>
             </button>
-            <button onClick={() => handlePageNum('next')} className={`w-1/2 h-12 flex justify-center gap-2 items-center font-semibold rounded-full hover:scale-[98%] transition duration-200 hover:bg-primary-hover-1 cursor-pointer bg-primary-1 text-white ${muscles?.length === 0 || pageNum === 2 ? '!cursor-not-allowed opacity-50' : ''}`}>
+            <button onClick={() => handlePageNum('next')} className={`w-1/2 h-12 flex justify-center gap-2 items-center font-semibold rounded-full hover:scale-[98%] transition duration-200 hover:bg-primary-hover-1 cursor-pointer bg-primary-1 text-white ${muscles?.length === 0 ? '!cursor-not-allowed opacity-50' : ''}`}>
                 <span>Continue</span>
                 <Image src={'RightArrow.svg'} alt='right arrow' width={20} height={20} className='invert' />
             </button>

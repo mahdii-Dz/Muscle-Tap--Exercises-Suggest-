@@ -12,7 +12,6 @@ function SuggestedExercises() {
 
     const { data: InitialExercises, isLoading } = useExercises(muscles)
     const [exercises, setExercises] = useState(InitialExercises || [])
-    console.log(exercises);
 
     useEffect(() => {
         setExercises(InitialExercises || [])
