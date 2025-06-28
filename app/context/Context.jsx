@@ -7,7 +7,7 @@ function Context({children}) {
     const [pageNum,setPageNum] = useState(1)
     const [muscles,setMuscles] = useState([])
 
-    console.log(muscles);
+    
     
   return (
     <GlobalContext.Provider value={{pageNum,setPageNum,muscles,setMuscles}}>

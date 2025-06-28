@@ -2,8 +2,9 @@
 
 @theme{
     --color-primary: #2b7fff;
+    --color-primary-hover: #2b3dff;
     --color-secondary: #232324;
 }
 .active{
-    @apply !fill-primary
+    @apply !fill-primary;
 }
