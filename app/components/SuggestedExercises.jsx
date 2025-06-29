@@ -8,12 +8,13 @@ import { Tooltip } from '@/components/ui/tooltip'
 import { TooltipContent, TooltipTrigger } from '@radix-ui/react-tooltip'
 import SortableList, { SortableItem, SortableKnob } from 'react-easy-sort'
 import { arrayMoveImmutable } from 'array-move'
+import Instructions from './Instructions'
 
 function SuggestedExercises() {
-    const { muscles } = useContext(GlobalContext)
-
+    const { muscles, showInfo, setShowInfo, infoExercise, setInfoExercise } = useContext(GlobalContext)
     const { data: InitialExercises, isLoading } = useExercises(muscles)
     const [exercises, setExercises] = useState(InitialExercises || [])
+
 
     useEffect(() => {
         setExercises(InitialExercises || [])
@@ -37,7 +38,7 @@ function SuggestedExercises() {
         setExercises((array) => arrayMoveImmutable(array, oldIndex, newIndex))
     }
 
-    console.log(exercises);
+    // console.log(exercises);
 
     return (
         <section className='w-full h-auto py-12 px-8 mb-16'>
@@ -57,7 +58,12 @@ function SuggestedExercises() {
                                         <span className='bg-primary-1 text-white text-sm font-semibold rounded-sm px-2 py-1'>{exo.muscle}</span>
                                         <Tooltip>
                                             <TooltipTrigger asChild>
-                                                <Image src={'/info.svg'} alt='info icon' width={20} height={20} className='cursor-pointer' />
+                                                <div onClick={()=>{
+                                                    setShowInfo(true)
+                                                    setInfoExercise(exo)
+                                                }}>
+                                                    <Image src={'/info.svg'} alt='info icon' width={20} height={20} className='cursor-pointer' />
+                                                </div>
                                             </TooltipTrigger>
                                             <TooltipContent>
                                                 <p className='bg-white/50 text-sm px-2 py-1 rounded-sm'>instructions</p>
@@ -78,6 +84,9 @@ function SuggestedExercises() {
                         : <span>No Exercises found</span>
                 }
             </SortableList>
+            {
+                showInfo && infoExercise && <Instructions exercise={infoExercise} />
+            }
         </section>
     )
 }
