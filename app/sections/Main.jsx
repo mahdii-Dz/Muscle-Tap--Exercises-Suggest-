@@ -11,9 +11,8 @@ function Main() {
         <div className="grow relative h-full w-full overflow-x-clip overflow-y-scroll [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-neutral-700 [&::-webkit-scrollbar-thumb]:bg-neutral-500 [&::-webkit-scrollbar-thumb]:rounded">
             <ProgressBtn />
             <MuscleOptions customClassName={pageNum === 1 ? '' : 'hidden'} />
-            {
-                pageNum === 2 && <SuggestedExercises />
-            }
+            <SuggestedExercises customClassName={pageNum === 2 ? '' : 'hidden'} />
+            
         </div>
     )
 }

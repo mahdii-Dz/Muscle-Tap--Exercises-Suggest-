@@ -10,7 +10,7 @@ import SortableList, { SortableItem, SortableKnob } from 'react-easy-sort'
 import { arrayMoveImmutable } from 'array-move'
 import Instructions from './Instructions'
 
-function SuggestedExercises() {
+function SuggestedExercises({customClassName}) {
     const { muscles, showInfo, setShowInfo, infoExercise, setInfoExercise } = useContext(GlobalContext)
     const { data: InitialExercises, isLoading } = useExercises(muscles)
     const [exercises, setExercises] = useState(InitialExercises || [])
@@ -41,7 +41,7 @@ function SuggestedExercises() {
     // console.log(exercises);
 
     return (
-        <section className='w-full h-auto py-12 px-8 mb-16'>
+        <section className={`w-full h-auto py-12 px-8 mb-16 ${customClassName}`}>
             <h1 className='text-xl font-semibold mb-8'>Exercises</h1>
             <SortableList onSortEnd={onSortEnd} className="list" draggedItemClassName='dragged' lockAxis='y'>
                 {
