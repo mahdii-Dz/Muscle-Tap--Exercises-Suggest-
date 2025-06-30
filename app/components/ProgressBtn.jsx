@@ -7,6 +7,10 @@ function ProgressBtn() {
     const { setPageNum, muscles, pageNum } = useContext(GlobalContext)
 
     function handlePageNum(direction) {
+        if(pageNum === 4) {
+            setPageNum(1)
+            return
+        }
         if (muscles?.length === 0) return
         setPageNum(prev => {
             if (direction === 'next') {
@@ -28,7 +32,7 @@ function ProgressBtn() {
                     pageNum === 3
                         ? <span>Finish</span>
                         : pageNum === 4
-                            ? <span onClick={() => setPageNum(0)}>Reset</span>
+                            ? <span>Reset</span>
                             : <span>Continue</span>
                 }
                 <Image src={'RightArrow.svg'} alt='right arrow' width={20} height={20} className={`invert ${pageNum === 4 ? 'hidden' : ''}`} />
