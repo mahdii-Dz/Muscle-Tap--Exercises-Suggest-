@@ -1,5 +1,5 @@
 'use client'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { GlobalContext } from '../context/Context'
 import useExercises from './useExercises'
 import Loading from './Loading'
@@ -7,7 +7,11 @@ import Image from 'next/image'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import SortableList, { SortableItem, SortableKnob } from 'react-easy-sort'
 import { arrayMoveImmutable } from 'array-move'
-import Instructions from './Instructions'
+import dynamic from 'next/dynamic'
+
+const Instructions = dynamic(()=>import('./Instructions'))
+
+
 
 function SuggestedExercises({ customClassName }) {
     const { muscles, showInfo, setShowInfo, infoExercise, setInfoExercise, exercises, setExercises } = useContext(GlobalContext)

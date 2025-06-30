@@ -2,9 +2,10 @@
 import Image from 'next/image'
 import React, { useContext } from 'react'
 import { GlobalContext } from '../context/Context'
-import StepsBar from './StepsBar'
-import Main from './Main'
+import dynamic from 'next/dynamic'
 
+const StepsBar = dynamic(() => import('./StepsBar'))
+const Main = dynamic(() => import('./Main'))
 
 function Welcome() {
   const { startApp, setStartApp } = useContext(GlobalContext)

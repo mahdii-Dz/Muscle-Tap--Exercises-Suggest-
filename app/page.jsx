@@ -1,6 +1,4 @@
 import Image from "next/image";
-import StepsBar from "./sections/StepsBar";
-import Main from "./sections/Main";
 import Welcome from "./sections/Welcome";
 
 export default function Home() {

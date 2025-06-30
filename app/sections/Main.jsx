@@ -1,11 +1,12 @@
 'use client'
 import React, { useContext } from 'react'
-import MuscleOptions from '../components/MuscleOptions'
-import ProgressBtn from '../components/ProgressBtn'
 import { GlobalContext } from '../context/Context'
-import SuggestedExercises from '../components/SuggestedExercises'
-import FinalExercises from '../components/FinalExercises'
-import Finish from '../components/Finish'
+import dynamic from 'next/dynamic'
+const MuscleOptions = dynamic(() => import('../components/MuscleOptions'))
+const ProgressBtn = dynamic(() => import('../components/ProgressBtn'))
+const SuggestedExercises = dynamic(() => import('../components/SuggestedExercises'))
+const FinalExercises = dynamic(() => import('../components/FinalExercises'))
+const Finish = dynamic(() => import('../components/Finish'))
 
 function Main() {
     const { pageNum, startApp } = useContext(GlobalContext)
