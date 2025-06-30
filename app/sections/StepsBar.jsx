@@ -28,7 +28,7 @@ function StepsBar() {
             }
           </div>
           <div className='flex flex-col sm:items-start items-center text-center justify-center'>
-            <span className='tsm:ext-lg font-bold'>Exercises</span>
+            <span className={`sm:text-lg font-bold ${pageNum <= 2 ? 'text-white' : 'text-green-400'}`}>Exercises</span>
             <span className='text-gray-500'>Customize your workout</span>
           </div>
         </div>
@@ -41,7 +41,7 @@ function StepsBar() {
             }
           </div>
           <div className='flex flex-col sm:items-start items-center text-center justify-center'>
-            <span className='tsm:ext-lg font-bold'>Finish</span>
+            <span className={`sm:text-lg font-bold ${pageNum <= 3 ? 'text-white' : 'text-green-400'}`}>Finish</span>
             <span className='text-gray-500'>Start Your WorkOut</span>
           </div>
         </div>
