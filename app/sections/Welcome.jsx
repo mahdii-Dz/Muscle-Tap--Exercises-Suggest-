@@ -8,7 +8,6 @@ import Main from './Main'
 
 function Welcome() {
   const { startApp, setStartApp } = useContext(GlobalContext)
-  console.log(startApp);
 
   return (
     <>

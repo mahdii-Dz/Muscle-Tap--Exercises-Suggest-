@@ -9,6 +9,7 @@ function Context({ children }) {
   const [muscles, setMuscles] = useState([])
   const [showInfo, setShowInfo] = useState(false)
   const [infoExercise, setInfoExercise] = useState(null)
+  const [exercises, setExercises] = useState([])
 
 
   return (
@@ -23,7 +24,9 @@ function Context({ children }) {
         infoExercise,
         setInfoExercise,
         startApp,
-        setStartApp
+        setStartApp,
+        exercises,
+        setExercises
       }}>
       {children}
     </GlobalContext.Provider>

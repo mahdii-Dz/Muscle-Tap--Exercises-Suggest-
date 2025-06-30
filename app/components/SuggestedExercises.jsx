@@ -4,16 +4,14 @@ import { GlobalContext } from '../context/Context'
 import useExercises from './useExercises'
 import Loading from './Loading'
 import Image from 'next/image'
-import { Tooltip } from '@/components/ui/tooltip'
-import { TooltipContent, TooltipTrigger } from '@radix-ui/react-tooltip'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import SortableList, { SortableItem, SortableKnob } from 'react-easy-sort'
 import { arrayMoveImmutable } from 'array-move'
 import Instructions from './Instructions'
 
-function SuggestedExercises({customClassName}) {
-    const { muscles, showInfo, setShowInfo, infoExercise, setInfoExercise } = useContext(GlobalContext)
+function SuggestedExercises({ customClassName }) {
+    const { muscles, showInfo, setShowInfo, infoExercise, setInfoExercise, exercises, setExercises } = useContext(GlobalContext)
     const { data: InitialExercises, isLoading } = useExercises(muscles)
-    const [exercises, setExercises] = useState(InitialExercises || [])
 
 
     useEffect(() => {
@@ -38,11 +36,10 @@ function SuggestedExercises({customClassName}) {
         setExercises((array) => arrayMoveImmutable(array, oldIndex, newIndex))
     }
 
-    // console.log(exercises);
 
     return (
         <section className={`w-full h-auto py-12 px-8 mb-16 ${customClassName}`}>
-            <h1 className='text-xl font-semibold mb-8'>Exercises</h1>
+            <h1 className='text-xl font-semibold mb-8'>Customize Exercises</h1>
             <SortableList onSortEnd={onSortEnd} className="list" draggedItemClassName='dragged' lockAxis='y'>
                 {
                     exercises
@@ -52,21 +49,21 @@ function SuggestedExercises({customClassName}) {
                                     <div className="dragIcon flex gap-2 items-center ">
                                         <SortableKnob>
                                             <div className='p-1 cursor-grab'>
-                                                <Image src={'/grip-vertical.svg'} alt='grab icon' width={20} height={20} className='cursor-grab pointer-events-none' draggable={false} />
+                                                <Image src={'/grip-vertical.svg'} alt='grab icon' width={20} height={20} className='cursor-grab !min-w-5 !min-h-5 pointer-events-none' draggable={false} />
                                             </div>
                                         </SortableKnob>
                                         <span className='bg-primary-1 text-white text-sm font-semibold rounded-sm px-2 py-1'>{exo.muscle}</span>
                                         <Tooltip>
                                             <TooltipTrigger asChild>
-                                                <div onClick={()=>{
+                                                <div onClick={() => {
                                                     setShowInfo(true)
                                                     setInfoExercise(exo)
                                                 }}>
-                                                    <Image src={'/info.svg'} alt='info icon' width={20} height={20} className='cursor-pointer' />
+                                                    <Image src={'/info.svg'} alt='info icon' width={20} height={20} className='cursor-pointer !min-w-5 !min-h-5' />
                                                 </div>
                                             </TooltipTrigger>
                                             <TooltipContent>
-                                                <p className='bg-white/50 text-sm px-2 py-1 rounded-sm'>instructions</p>
+                                                <p >instructions</p>
                                             </TooltipContent>
                                         </Tooltip>
                                     </div>
@@ -75,7 +72,7 @@ function SuggestedExercises({customClassName}) {
                                     </div>
                                     <div>
                                         <button onClick={() => handleDelete(index)}>
-                                            <Image src={'/trash.svg'} alt='delete icon' width={20} height={20} className='opacity-85 cursor-pointer' />
+                                            <Image src={'/trash.svg'} alt='delete icon' width={20} height={20} className='opacity-85 cursor-pointer !min-w-5 !min-h-5' />
                                         </button>
                                     </div>
                                 </div>

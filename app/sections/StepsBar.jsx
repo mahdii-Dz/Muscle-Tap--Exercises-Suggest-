@@ -7,7 +7,7 @@ function StepsBar() {
 
 
   return (
-    <aside className='sm:w-2/6 w-full sm:h-full h-2/4 pt-16 bg-gray-800 flex flex-col justify-start items-center'>
+    <aside className='sm:w-2/6 w-full sm:h-full h-2/4 sm:pl-0 pl-4 py-16 bg-gray-800 flex flex-col justify-start items-start sm:items-center'>
       <div className="wrapper">
         <div className='First-step flex items-center w-full gap-4'>
           <div className={`number w-12 h-12 ${pageNum === 1 ? 'bg-primary-1' : 'bg-green-400'} text-white text-lg rounded-full flex justify-center items-center`}>
@@ -20,7 +20,7 @@ function StepsBar() {
             <span className='text-gray-500'>Choose your training</span>
           </div>
         </div>
-        <div className={`w-0.5 h-24 ml-6 my-4  ${pageNum === 1 ? 'bg-gray-500' : 'bg-green-400'}`}></div>
+        <div className={`w-0.5 sm:h-24 h-16 ml-6 my-4  ${pageNum === 1 ? 'bg-gray-500' : 'bg-green-400'}`}></div>
         <div className='second-step flex items-center w-full gap-4'>
           <div className={`number w-12 h-12 ${pageNum <= 2 ? 'bg-primary-1' : 'bg-green-400'} text-white text-lg rounded-full flex justify-center items-center`}>
             {
@@ -33,7 +33,7 @@ function StepsBar() {
           </div>
         </div>
 
-        <div className={`w-0.5 h-24 ml-6 my-4  ${pageNum <= 2 ? 'bg-gray-500' : 'bg-green-400'}`}></div>
+        <div className={`w-0.5 sm:h-24 h-16 ml-6 my-4  ${pageNum <= 2 ? 'bg-gray-500' : 'bg-green-400'}`}></div>
         <div className='second-step flex items-center w-full gap-4'>
           <div className={`number w-12 h-12 ${pageNum <= 3 ? 'bg-primary-1' : 'bg-green-400'} text-white text-lg rounded-full flex justify-center items-center`}>
             {
