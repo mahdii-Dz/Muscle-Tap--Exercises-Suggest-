@@ -6,14 +6,21 @@ import { GlobalContext } from '../context/Context'
 import SuggestedExercises from '../components/SuggestedExercises'
 
 function Main() {
-    const { pageNum } = useContext(GlobalContext)
+    const { pageNum, startApp } = useContext(GlobalContext)
     return (
-        <div className="grow relative h-full w-full overflow-x-clip overflow-y-scroll [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-neutral-700 [&::-webkit-scrollbar-thumb]:bg-neutral-500 [&::-webkit-scrollbar-thumb]:rounded">
-            <ProgressBtn />
-            <MuscleOptions customClassName={pageNum === 1 ? '' : 'hidden'} />
-            <SuggestedExercises customClassName={pageNum === 2 ? '' : 'hidden'} />
-            
-        </div>
+        <>
+            {
+                startApp && (
+                    <div className="grow relative h-full w-full overflow-x-clip overflow-y-scroll [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-neutral-700 [&::-webkit-scrollbar-thumb]:bg-neutral-500 [&::-webkit-scrollbar-thumb]:rounded">
+                        <ProgressBtn />
+                        <MuscleOptions customClassName={pageNum === 1 ? '' : 'hidden'} />
+                        <SuggestedExercises customClassName={pageNum === 2 ? '' : 'hidden'} />
+
+                    </div>
+                )
+            }
+
+        </>
     )
 }
 

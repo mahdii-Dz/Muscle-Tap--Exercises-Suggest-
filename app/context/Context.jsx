@@ -4,6 +4,7 @@ import React, { createContext, useState } from 'react'
 export const GlobalContext = createContext()
 
 function Context({ children }) {
+  const [startApp, setStartApp] = useState(false)
   const [pageNum, setPageNum] = useState(1)
   const [muscles, setMuscles] = useState([])
   const [showInfo, setShowInfo] = useState(false)
@@ -11,7 +12,19 @@ function Context({ children }) {
 
 
   return (
-    <GlobalContext.Provider value={{ pageNum, setPageNum, muscles, setMuscles, showInfo, setShowInfo, infoExercise, setInfoExercise }}>
+    <GlobalContext.Provider
+      value={{
+        pageNum,
+        setPageNum,
+        muscles,
+        setMuscles,
+        showInfo,
+        setShowInfo,
+        infoExercise,
+        setInfoExercise,
+        startApp,
+        setStartApp
+      }}>
       {children}
     </GlobalContext.Provider>
   )
