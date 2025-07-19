@@ -1,7 +1,8 @@
 'use client'
 import Image from 'next/image'
-import React, { useContext } from 'react'
+import React, { Suspense, useContext } from 'react'
 import { GlobalContext } from '../context/Context'
+import Loading from '../components/Loading'
 import dynamic from 'next/dynamic'
 
 const StepsBar = dynamic(() => import('./StepsBar'))
@@ -27,10 +28,10 @@ function Welcome() {
             </div>
           )
           : (
-            <>
+            <Suspense fallback={<Loading></Loading>}>
               <StepsBar />
               <Main />
-            </>
+            </Suspense>
           )
       }
 
